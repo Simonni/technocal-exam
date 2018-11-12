@@ -1,1 +1,23 @@
 
+table, th {
+  border-spacing: 30px;
+  color:rgb(31, 2, 2); 
+}
+
+#devForm{
+color: rgb(87, 28, 4);
+}
+body{
+  background: url("./back_img/pattern.png");
+}
+
+h1{
+  color: brown;
+  text-align: center;
+  text-decoration-style: double;
+  
+}
+
+button{
+  color: brown
+}
