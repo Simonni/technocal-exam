@@ -8,7 +8,6 @@ let student = function(name, nameOfSchool, progLang){
   this.nameOfSchool = nameOfSchool
   this.progLang = progLang
 }
-
 let elHeader = document.createElement('tr')
 eltable.appendChild(elHeader)
 let elTh = document.createElement('th')
@@ -33,6 +32,7 @@ if(localStorage.parsestudentsArray){
 //nameOfStudents.push(student1,student2,student3)
 
   student.prototype.newNameOfStudent = function(){
+  
     for(let i=0; i<nameOfStudents.length; i++){
       let listName = document.createElement('ul')
       elTh.appendChild(listName)
@@ -45,6 +45,7 @@ if(localStorage.parsestudentsArray){
       listschool.innerText = nameOfStudents[i].nameOfSchool
       listLang.innerText = nameOfStudents[i].progLang
     }
+    
   }
 
 
@@ -62,10 +63,16 @@ let ellanguage = elform.progLang
 // Event Listner to our constructor function
 elform.addEventListener('submit', function(event){
   event.preventDefault()
+ 
   localStorage.setItem('studentsArray', JSON.stringify(nameOfStudents))
-  // eltable.removeChild(eltable.lastChild)
   let newStudent = new student(elstudent.value,elschool.value, ellanguage.value)
   nameOfStudents.push(newStudent)
   newStudent.newNameOfStudent()
- 
+  // removeName()
 })
+
+let removeName = function(){
+  while(elHeader.parentNode){
+    elHeader.parentNode.removeChild(elHeader)
+  }
+}
